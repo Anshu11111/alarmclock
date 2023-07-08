@@ -12,6 +12,10 @@ function settime() {
   if (h < 10) {
     h = "0" + h;
   }
+  if(h>12){
+    h=h-12;
+    h="0"+h;
+  }
   if (m < 10) {
     m = "0" + m;
   }
@@ -63,8 +67,15 @@ ampm="AM";
 }
 
 function setalarm(){
+  if(close){
+    setime=" ";
+    ringtone.pause();
+    push.innerHTML="Set Alarm"
+    return close=false;
+  }
      setime=`${select[0].value}:${select[1].value}:${select[2].value}`
-    // push.innerHTML="clear Alarm"
+     close=true;
+    push.innerHTML="Clear Alarm"
     
 }
 
